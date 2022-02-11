@@ -13,7 +13,7 @@ describe('Provider: marked,', function () {
       expect(marked.defaults.gfm).toBeTruthy();
       expect(marked.defaults.breaks).toBeFalsy();
       expect(marked.defaults.silent).toBeFalsy();
-      expect(marked.defaults.langPrefix).toBe('lang-');
+      expect(marked.defaults.langPrefix).toBe('language-');
     });
   });
 
@@ -29,7 +29,7 @@ describe('Provider: marked,', function () {
 
     inject(function (marked) {
       var input = '[Google](http://google.com)';
-      var output = marked(input);
+      var output = marked.parse(input);
       expect(output).toContain('target="_blank"');
     });
   });
@@ -45,7 +45,7 @@ describe('Provider: marked,', function () {
       expect(marked.defaults.gfm).toBeFalsy();
       expect(marked.defaults.breaks).toBeFalsy();
       expect(marked.defaults.silent).toBeTruthy();
-      expect(marked.defaults.langPrefix).toBe('lang-');
+      expect(marked.defaults.langPrefix).toBe('language-');
     });
   });
 });
@@ -79,7 +79,7 @@ describe('Directive: marked,', function () {
 
     html = ['<h1 id="a-heading">A heading</h1>\n<p>Hello <em>world</em>. ',
            'Here is a <a href="//hello">link</a>.\nAnd an image <img src="http://angularjs.org/img/AngularJS-large.png" alt="alt">.</p>\n',
-           '<span ng-non-bindable=""><pre><code>&lt;test&gt;Code goes here.&lt;/test&gt;\n</code></pre></span>'].join('');
+           '<span ng-non-bindable=""><pre><code>&lt;test&gt;Code goes here.&lt;/test&gt;\n</code></pre>\n</span>'].join('');
 
     $scope.file = 'file.md';
 
@@ -195,7 +195,7 @@ describe('Directive: marked,', function () {
       var element = angular.element('<marked compile="true">## Hello {{2 + 3}}</marked>');
       $compile(element)($scope);
       $scope.$digest();
-      expect(element.html()).toContain('<h2 id="hello-2-3-" class="ng-binding ng-scope">Hello 5</h2>');
+      expect(element.html()).toContain('<h2 id="hello-2--3" class="ng-binding ng-scope">Hello 5</h2>');
     });
   });
 

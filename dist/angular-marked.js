@@ -227,7 +227,7 @@ function markedProvider() {
     };
 
     // add the new renderer to the options if need be
-    self.defaults = self.defaults || {};
+    self.defaults = self.defaults || {gfm: true, silent: false};
     self.defaults.renderer = r;
 
     m.setOptions(self.defaults);
@@ -333,7 +333,7 @@ function markedDirective(marked, $templateRequest, $compile) {
 
       function set(text) {
         text = unindent(String(text || ''));
-        element.html(marked(text, scope.opts || null));
+        element.html(marked.parse(text, scope.opts || null));
         if (scope.$eval(attrs.compile)) {
           $compile(element.contents())(scope.$parent);
         }

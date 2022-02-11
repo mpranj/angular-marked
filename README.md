@@ -29,7 +29,7 @@ or
 Depending on your setup you may need include script tags in your html:
 
 ```html
-<script src="bower_components/marked/lib/marked.js"></script>
+<script src="bower_components/marked/marked.min.js"></script>
 <script src="bower_components/angular-marked/dist/angular-marked.js"></script>
 ```
 
