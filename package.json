@@ -1,13 +1,13 @@
 {
   "name": "angular-marked",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "AngularJS Markdown using marked.",
   "main": "lib/angular-marked.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "marked": "^0.6.2"
+    "marked": "^4.0.12"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
